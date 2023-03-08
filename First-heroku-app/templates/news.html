@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Giggle News</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/materia/bootstrap.min.css" />
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Giggle Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Giggle News</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="/static/giggle_news.png" class="mb-3" alt="Giggle Logo"  />
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Loop through the news_results list -->
+        {% for item in news_results %}
+
+            <!-- Giving each result it's own row -->
+            <div class="row mb-3">
+
+                <!-- Display to the left the section and publication date -->
+                <div class="col-md-3 text-end text-muted">
+                    <h2>{{ item.sectionName }}</h2>
+                    <h4>{{ item.webPublicationDate }}</h4>
+                </div>
+
+                <!-- Display to the right the title of the article as a link -->
+                <div class="col">
+                    <a href="{{ item.webUrl }}">
+                        <h1>{{ item.webTitle }}</h1>
+                    </a>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+
+
+</body>
+</html>
